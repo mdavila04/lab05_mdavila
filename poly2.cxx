@@ -80,9 +80,23 @@ namespace main_savitch_5
         
         // CONSTANT MEMBER FUNCTIONS
         double polynomial::coefficient(unsigned int exponent) const
+        {
+            if(exponent > current_degree)
+            {
+                return 0;
+            }
+            else
+            return recent_ptr->coef();
+        }
         unsigned int polynomial::degree( ) const { return current_degree; }
         polynomial polynomial::derivative( ) const
+        {
+            return 0;
+        }
         double polynomial::eval(double x) const
+        {
+            return 0;
+        }
         void polynomial::find_root(
             double& answer,
             bool& success,
@@ -92,8 +106,17 @@ namespace main_savitch_5
             double epsilon = 1e-8
             )
             const
+            {
+                return 0;
+            }
         unsigned int polynomial::next_term(unsigned int e) const
+        {
+            return 0;
+        }
         unsigned int polynomial::previous_term(unsigned int e) const
+        {
+            return 0;
+        }
         
         // CONSTANT OPERATORS
         double operator( ) (double x) const { return eval(x); }
@@ -121,15 +144,9 @@ namespace main_savitch_5
 	    }
 	  else//move recent foreward to match exponent
 	    {
+            if(exponent > current_degree)
+                recent_ptr = tail_ptr;
         for(;recent_ptr != NULL && recent_pointer->exponent != exponent; recent_pointer = recent_pointer ->fore());//moves forward to tail
-            if(recent_pointer == tail_ptr)
-	      const node *cursor;
-	      for(cursor = recent_ptr; cursor != NULL; cursor = cursor->fore())
-		{
-		  if(recent_ptr->exponent != exponent)
-		    recent_ptr->fore();
-		  else continue;
-		}
 	    }
 	}
 	    
